@@ -1,0 +1,25 @@
+package sample
+
+import android.os.Build
+import android.support.v7.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.TextView
+
+actual class Sample {
+    actual fun checkMe() = 44
+}
+
+actual object Platform {
+    actual val name: String = "Android API ${Build.VERSION.SDK_INT}"
+
+}
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Sample().checkMe()
+        setContentView(R.layout.activity_main)
+        findViewById<TextView>(R.id.main_text).text = hello()
+    }
+}
